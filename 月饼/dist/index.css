@@ -1,9 +1,19 @@
 .bg {
-  background-image: url(http://www.meixinyuebing.com/webadmin/editor/attached/image/20190705/20190705100652755275.jpg);
+  background-image: url(./img/homebg.jpg);
   width: 100%;
-  height: 45%;
-  background-size: cover;
+  height: 35%;
+  background-size: 100% 100%;
   background-repeat: no-repeat;
+  position: relative;
+}
+
+.bg .services {
+  display: inline-block;
+  position: absolute;
+  width: 30%;
+  height: 5rem;
+  right: 0;
+  top: calc(50% - 4rem);
 }
 
 .click-area {
