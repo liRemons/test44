@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../reset.css">
+  <link rel="stylesheet" href="./desc.css">
+</head>
+
+<body>
+  <div class="main">
+    <div class="logo"></div>
+    <div class="coll-item">
+      <div class="title" onclick="coll(0)">
+        <span class="title-icon">
+          <img src="../img/icon-1.png" alt="">
+          <span i18n-key="title.1"></span>
+        </span>
+        <div class="handle">
+          <img class="close" src="../img/icon-6.png" alt="">
+          <img class="open" src="../img/icon-5.png" alt="">
+        </div>
+      </div>
+      <div class="content" i18n-key="content.1">
+
+      </div>
+    </div>
+    <div class="coll-item" onclick="coll(1)">
+      <div class="title">
+        <span class="title-icon">
+          <img src="../img/icon-2.png" alt="">
+          <span i18n-key="title.2"></span>
+        </span>
+        <div class="handle">
+          <img class="close" src="../img/icon-6.png" alt="">
+          <img class="open" src="../img/icon-5.png" alt="">
+        </div>
+      </div>
+      <div class="content">
+        <img i18n-key="qr.img" src="" alt="">
+      </div>
+    </div>
+    <div class="coll-item" onclick="coll(2)">
+      <div class="title">
+        <span class="title-icon">
+          <img src="../img/icon-3.png" alt="">
+          <span i18n-key="title.3"></span>
+        </span>
+        <div class="handle">
+          <img class="close" src="../img/icon-6.png" alt="">
+          <img class="open" src="../img/icon-5.png" alt="">
+        </div>
+      </div>
+      <div class="content">
+        <img src="../img/ver.png" alt="">
+        <div class="text">
+          <p i18n-key="ver.desc.1"></p>
+          <p>
+            <span i18n-key="ver.desc.2.font"></span>
+            <img src="../img/icon-7.png" alt="">
+            <span i18n-key="ver.desc.2.icon.text"></span>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="coll-item" onclick="coll(3)">
+      <div class="title">
+        <span class="title-icon">
+          <img src="../img/icon-4.png" alt="">
+          <span i18n-key="title.4"></span>
+        </span>
+        <div class="handle">
+          <img class="close" src="../img/icon-6.png" alt="">
+          <img class="open" src="../img/icon-5.png" alt="">
+        </div>
+      </div>
+      <div class="content">
+        <p i18n-key="title.4.content.1"></p>
+        <p i18n-key="title.4.content.2"></p>
+        <p i18n-key="title.4.content.3"></p>
+        <p i18n-key="title.4.content.4"></p>
+        <p i18n-key="title.4.content.4.desc"></p>
+        <p i18n-key="title.4.content.5"></p>
+      </div>
+    </div>
+    <footer i18n-key="footer"></footer>
+  </div>
+</body>
+
+<script>
+  function coll(i) {
+    const collItems = document.querySelectorAll('.coll-item');
+    [...collItems].forEach((item, index) => {
+      if (index === i) {
+        if (item.className.includes('active')) {
+          item.className = 'coll-item';
+        } else {
+          item.className = 'coll-item active'
+        }
+      } else {
+        item.className = 'coll-item'
+      }
+    });
+  }
+
+  const contentMap = {
+    'zh_CN': {
+      'title.1': '敬请留意',
+      'content.1': '消费者请留意，每盒香港美心月饼包装上均贴上枚完好无损的防伪标签，为保障阁下的利益，请确保由阁下揭开防伪标签表层并完成验证。以下内容将为消费者解说防伪标签上的防伪特征及验证流程。',
+      'title.2': '真品标签',
+      'qr.img': '/img/qr-zh-cn.png',
+      'title.3': '标签特征',
+      'ver.desc.1': '1.【美心月饼】在平面上呈现金属浮雕效果',
+      'ver.desc.2.font': '2.【美心】字体及背景',
+      'ver.desc.2.icon.text': '图案会在上下左右移动标签时呈现上浮及下沉对比效果',
+      'title.4': '验证流程',
+      'title.4.content.1': '1.消费者在购买香港美心月饼时，请确保包装上的 防伪标签完好无损。为保障阁下的利益，请确保由阁下揭开防伪标签表层并完成验证。',
+      'title.4.content.2': '2.请揭开标签表层，打开微信“扫一扫”查询真伪，系统将显示以下其中一项查询结果：',
+      'title.4.content.3': '3.正确查询结果：阁下查询的是香港美心月饼系列产品的正确授权产品编码，感谢您的查询。',
+      'title.4.content.4': '4.重复查询结果：阁下查询的防伪码已经被查询过，下方列出了首次查询的查询记录。如果防伪标签由阁下揭开，但下方列出的首次查询 记录并非由阁下操作，此防伪码有可能已被抄袭，有关产品亦可能是假冒货品。',
+      'title.4.content.4.desc': '首次查询：2023年XX月XX日XX时XX分',
+      'title.4.content.5': '5.错误查询结果：阁下查询的防伪码并不存在于系统内或已被系统识别为抄袭编码。慎防假冒。如需进一步查询或协助请点击在线客服咨询。',
+      'footer': '感谢你的关注，如有疑问请点击在线客服咨询'
+    },
+    'zh_TW': {
+      'title.1': '敬請留意',
+      'content.1': '消費者請留意,每盒香港美心月餅包裝上均貼上枚完好無損的防偽標籤,為保障閣下的利益,請確保由閣下揭開防偽標籤表層並完成驗證。 以下內容將為消費者解說防偽標籤上的防偽特征及驗證流程。',
+      'title.2': '真品標籤',
+      'qr.img': '../img/qr-zh-cn.png',
+      'title.3': '標籤特徵',
+      'ver.desc.1': '1.【【美心月餅】 在平面上呈現金屬浮雕效果',
+      'ver.desc.2.font': '2.【美心】字體及背景',
+      'ver.desc.2.icon.text': '圖案會在上下左右移動標籤時呈現上浮及下沉對比效果',
+      'title.4': '驗證流程',
+      'title.4.content.1': '1.消费者在購買香港美心月餅時，請確保包裝上的防偽標籤完好無损。為保障閣下的利益，請確保由閣下揭開防偽標籤表層並完成驗證。',
+      'title.4.content.2': '2.請揭開標籤表層，打開微信「掃一掃」查詢真偽，系統將顯示以下其中一項查詢結果：',
+      'title.4.content.3': '3.正確查詢結果：間下查詢的是香港美心月餅系列產品的正確授權產品編碼，感謝您的查詢。',
+      'title.4.content.4': '4.重複查詢結果：閻下查詢的防偽碼巳經被查詢過，下方列出了首次查詢的查詢記錄。如果防偽標籤由闆下揭開，但下方列出的首次查詢 記錄並非由闊下操作，此防偽碼有可能已被抄襲， 有關產品亦可能是假冒貨品。',
+      'title.4.content.4.desc': '首次查詢：2023年XX月XX日XX時XX分',
+      'title.4.content.5': '5.錯誤查詢結果：閣下查詢的防偽碼並不存在於系統內或已被系統識別為抄襲編碼。慎防假冒。如需進一步查詢或協助請點擊在線客服諮詢。',
+      'footer': '感謝你的關注，如有疑問請點擊在線客服諮詢'
+    },
+    'en_US': {
+      'title.1': 'Please pay attention',
+      'content.1': 'Consumers please note that each box of Hong Kong Meixin mooncakes is affixed with an intact anti-counterfeiting label. In order to protect your interests, please ensure that you uncover the surface of the anti-counterfeiting label and complete the verification. The following content will explain the anti-counterfeiting features and verification process on anti-counterfeiting labels for consumers.',
+      'title.2': 'Authenticity label',
+      'qr.img': '../img/qr-zh-cn.png',
+      'title.3': 'Label Features',
+      'ver.desc.1': '1. A metallic 3D 【美心月餅】logo',
+      'ver.desc.2.font': '2.When moving the label up and down【美心】and',
+      'ver.desc.2.icon.text': 'images will appear at different depth of field level',
+      'title.4': 'Authentication procedure',
+      'title.4.content.1': '1.Consumer please be aware that all Hong Kong MX Mooncakes packaging should carry an intact and undamaged security label. To protect your interests, please ensure that you peel off the front layer of the security label and complete the verification by yourself.',
+      'title.4.content.2': '2.Please peel off the front layer of the security label. Use the WeChat "Scan OR Code" tool to scan the OR Code on the bottom layer of the security label. Then enter the "WeChat Applet" of Hong Kong MX Mooncakes security checking platform. After choosing the language, your authentication result will be displayed.',
+      'title.4.content.3': '3.Correct Result: Your checking passed our authentication system. Thank you for your support.',
+      'title.4.content.4': '4.Repeated Checking Result: From our system record, the security code you provided has been checked before. Below shows the first-time checking record in our system. If the security label is peeled off by you but the first-time checking record was not conducted by yourself, this security code may have been plagiarized. Please beware of counterfeit goods. Please contact us at the "Consultation" chat box for further assistance.',
+      'title.4.content.4.desc': 'The first-time checking record: XX/XX/2023(XX:XX).',
+      'title.4.content.5': '5.Wrong Result: The security code you provided is not in our system or recorded as suspected code in our system. <p>Please beware of counterfeit products. Please contact us at the "Consultation" chat box.<p/>',
+      'footer': 'Thank you for your attention, if you have any questions, please click online customer service consultation'
+    }
+  }
+
+</script>
+<script src="/common.js"></script>
+
+</html>

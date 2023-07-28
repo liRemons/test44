@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="../reset.css" />
+  <link rel="stylesheet" href="./scan.css" />
+</head>
+
+<body>
+  <div class="main">
+    <div class="logo"></div>
+    <div class="panel">
+      <div class="title" i18n-key="tag"></div>
+      <img class="qr" i18n-key="qr-code" src="../img/qr-zh-cn.png" alt="" />
+      <a class="desc" onclick="todesc(window.location.search)" i18n-key="tag.to.desc"></a>
+    </div>
+    <div class="panel">
+      <div class="title" i18n-key="search.result"></div>
+      <br />
+      <img class="history" src="../img/history.png" alt="" />
+      <br />
+      <span class="first">
+        <span class="time-title" i18n-key="search.first"></span>
+        <br />
+        <span class="time" i18n-key="search.time"></span>
+        <br />
+        <span class="time-bottom brown" i18n-key="search.true.desc"></span>
+      </span>
+      <span class="not-first">
+        <span class="time-title" i18n-key="search.time.title"></span>
+        <br />
+        <span class="time" i18n-key="search.time"></span>
+        <br />
+        <span class="time-bottom brown" i18n-key="search.waring.1"></span>
+        <br />
+        <span class="time-bottom brown" i18n-key="search.waring.2"></span>
+        <br />
+        <span class="time-bottom brown" i18n-key="search.waring.3"></span>
+        <span class="time-bottom" i18n-key="search.first.time"></span>
+      </span>
+
+    </div>
+    <div class="panel security">
+      <div class="title" i18n-key="anti.fake.title"></div>
+      <img src="../img/security.png" alt="" />
+      <div class="title" i18n-key="anti.fake.desc"></div>
+      <div class="code">
+        1356 <span class="blue">7416</span> <span class="blue">7830</span>
+        <span class="red">8095</span>
+      </div>
+      <span class="brown" i18n-key="anti.fake.tip"></span>
+    </div>
+    <footer i18n-key="footer"></footer>
+  </div>
+</body>
+<script>
+  function todesc(search) {
+    window.open(`/desc/index.html${search}`, '_top')
+  }
+
+  const search = new URLSearchParams(location.search);
+  const first = document.querySelector('.first');
+  const notFirst = document.querySelector('.not-first');
+  if (search.get('searchCount') && +search.get('searchCount') !== 1) {
+    first.style.display = 'none'
+  } else {
+    notFirst.style.display = 'none'
+  }
+
+  const contentMap = {
+    'zh_CN': {
+      tag: '真品标签',
+      'tag.to.desc': '请点击此处进入详细说明',
+      'search.result': '查询结果',
+      'search.first': '本次为首次查询，时间为',
+      'search.time': '2023年07月27日15时06分',
+      'search.true.desc': '阁下查询的是香港美心月饼系列产品的正确授权产品编码，感谢您的查询。',
+      'anti.fake.title': '防伪图纹码',
+      'anti.fake.desc': '防伪码',
+      'anti.fake.tip': '请核对阁下标签上的防伪图纹码及防伪码颜色图案是否与上图相同',
+      'qr-code': '../img/qr-zh-cn.png',
+      'search.time.title': '本次查询时间为',
+      'search.waring.1': '阁下查询的防伪码己经被查询过，下方列出了首次查询的查询记录。',
+      'search.waring.2': '如果防伪标签由阁下揭开、但下方列出的首次查询记录并非由阎下操作，此防伪码有可能已被抄袭，有关产品亦可能是假冒货品。',
+      'search.waring.3': '如需进一步协助请点击在线客服咨询',
+      'search.first.time': '首次查询：2023年07月27日15时06分',
+      'footer':'感谢你的关注，如有疑问请点击在线客服咨询'
+    },
+    'zh_TW': {
+      tag: '真品標籤',
+      'tag.to.desc': '請點擊此處進入詳細說明',
+      'search.result': '查詢結果',
+      'search.first': '本次爲首次查詢，時間爲',
+      'search.time': '2023年07月27日15時06分',
+      'search.true.desc': '閣下查詢的是香港美心月餅系列產品的正確授權產品編碼，感謝您的查詢。',
+      'anti.fake.title': '防僞圖紋碼',
+      'anti.fake.desc': '防僞碼',
+      'qr-code': '../img/qr-zh-tw.png',
+      'anti.fake.tip': '請覈對閣下標籤上的防僞圖紋碼及防僞碼顏色圖案是否與上圖相同',
+      'search.time.title': '本次查詢時閰為',
+      'search.waring.1': '閣下查詢的防偽碼己經被查詢過，下方列出了首次查詢的查詢記錄。',
+      'search.waring.2': '如果防偽標籤由閣下揭開、但下方列出的首次查詢記錄並非由閻下操作，此防偽碼有可能已被抄襲，有關產品亦可能是假冒貨品。',
+      'search.waring.3': '如需進一步協助請點擊在線客服諮詢',
+      'search.first.time': '首次查詢：2023年07月27日15時06分',
+      'footer':'感謝你的關注，如有疑問請點擊在線客服諮詢'
+    },
+    'en_US': {
+      tag: 'Authentic Security Label',
+      'qr-code': '../img/qr-en-us.png',
+      'tag.to.desc': 'Click here for more information',
+      'search.result': 'Checking Result',
+      'search.first': 'This is the first query and the time is',
+      'search.time': '2023/07/27 15:06',
+      'search.true.desc': 'You have inquired about the correct authorized product code of Hong Kong Mei Xin Mooncake Series. Thank you for your enquiry.',
+      'anti.fake.title': 'Security Fingerprint Code',
+      'anti.fake.desc': 'Security Code',
+      'anti.fake.tip': 'Security Fingerprint Code and Security Code displaved here should be identical to the images on your label',
+      'search.time.title': 'The query time is',
+      'search.waring.1': 'The security code you inquired about has already been queried, and the query record of the first query is listed below.',
+      'search.waring.2': 'If the security label is opened by you, but the first search record listed below is not operated by the seal, the security code may have been copied and the product may be counterfeit.',
+      'search.waring.3': 'For further assistance, please click online customer service consultation',
+      'search.first.time': 'First query:2023/07/27 15:06',
+      'footer': 'Thank you for your attention, if you have any questions, please click online customer service consultation'
+    },
+  }
+
+
+</script>
+
+<script src="../common.js"></script>
+
+</html>

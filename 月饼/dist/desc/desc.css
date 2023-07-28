@@ -1,0 +1,87 @@
+body {
+  background: linear-gradient(to right, #feebe7, #f4fdfc);
+}
+
+.main {
+  overflow: hidden;
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.logo {
+  display: inline-block;
+  height: 4rem;
+  width: 50%;
+  background-image: url(../img/logo.png);
+  background-size: 100% 100%;
+  margin-bottom: 2rem;
+}
+
+.coll-item {
+  margin-top: 2rem;
+  border-radius: 2rem 2rem .5rem .5rem;
+}
+
+.coll-item .title {
+  background-color: rgb(254, 210, 118);
+  color: rgb(67, 23, 1);
+  height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  border-radius: 2rem;
+  z-index: 2;
+  font-size: 20px;
+}
+
+.coll-item.active {
+  background-color: rgb(255, 244, 220);
+}
+
+.title-icon {
+  display: flex;
+  align-items: center;
+}
+
+.title-icon img {
+  margin-right: .2rem;
+  height: 2.2rem;
+}
+
+.coll-item .handle img {
+  height: 3rem;
+  display: none;
+}
+
+.coll-item .handle .close {
+  display: inline-block;
+}
+
+.coll-item.active .handle .open {
+  display: inline-block;
+}
+
+.coll-item.active .handle .close {
+  display: none;
+}
+
+.content img {
+  max-width: 100%;
+}
+
+.content .text img {
+  width: 2rem;
+}
+
+.coll-item .content {
+  display: none;
+  text-align: left;
+  padding: .5rem 1rem 1rem;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+.coll-item.active .content {
+  display: inherit;
+}
